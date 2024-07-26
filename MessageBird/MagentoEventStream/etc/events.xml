@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="wishlist_add_product">
+        <observer name="messagebird_wishlist_add_product_observer"
+                  instance="MessageBird\MagentoEventStream\Observer\Dispatcher\WishlistAddedDispatcher"/>
+    </event>
+    <event name="checkout_cart_product_add_after">
+        <observer name="messagebird_checkout_cart_product_add_after_observer"
+                  instance="MessageBird\MagentoEventStream\Observer\Dispatcher\CartAddedDispatcher"/>
+    </event>
+    <event name="controller_action_predispatch_checkout_index_index">
+        <observer name="messagebird_controller_action_predispatch_checkout_index_index_observer"
+                  instance="MessageBird\MagentoEventStream\Observer\Dispatcher\CheckoutProceedDispatcher"/>
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="messagebird_sales_order_place_after_observer"
+                  instance="MessageBird\MagentoEventStream\Observer\Dispatcher\OrderPlacedDispatcher"/>
+    </event>
+    <event name="sales_order_shipment_save_after">
+        <observer name="messagebird_sales_order_shipment_save_after_observer"
+                  instance="MessageBird\MagentoEventStream\Observer\Dispatcher\ShipmentFulfilledDispatcher"/>
+    </event>
+    <event name="sales_order_creditmemo_save_after">
+        <observer name="messagebird_sales_order_creditmemo_save_after_observer"
+                  instance="MessageBird\MagentoEventStream\Observer\Dispatcher\OrderRefundedDispatcher"/>
+    </event>
+</config>
